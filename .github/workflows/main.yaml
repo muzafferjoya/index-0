@@ -1,4 +1,4 @@
-name: Nginx Sample application
+name: Index Sample application
 
 on:
   push:
