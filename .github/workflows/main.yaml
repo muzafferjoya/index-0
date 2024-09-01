@@ -37,7 +37,7 @@ jobs:
             with:
               context: .
               push: true
-              tags: muzafferjoya/index:app-${{ github.run_number }}
+              tags: muzafferjoya/index:${{ github.run_number }}
   modifygit:
     needs: docker
     runs-on: ubuntu-latest
@@ -54,10 +54,10 @@ jobs:
           pwd
           cat deployment.yaml
           pwd
-          sed -i "s+muzafferjoya/index.*+muzafferjoya/index:app-$RUN_NUMBER+g" deployment.yaml
+          sed -i "s+muzafferjoya/index.*+muzafferjoya/index:$RUN_NUMBER+g" deployment.yaml
           cat deployment.yaml
           git add .
-          git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
+          git commit -m 'Done  by Github Actions Job changemanifest: ${{ github.run_number }}'
           git push origin main
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
